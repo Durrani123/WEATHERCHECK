@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>WEATHERCHECK</title>
+</head>
+<body style="font-family: 'Montserrat', sans-serif;background-image: url(<%=backImageUrl%>);background-size: 100% 100%;background-position: 0% 0%,100% 0%; background-repeat: no-repeat;" class="text-white">
+
+  <div id="wholeContent" >
+  <div class="mx-8 mt-2 pb-4 text-white">
+    <nav class=" md:flex justify-between items-center ">
+      <div class="flex justify-between items-center">
+        <h1 class="font-bold text-2xl">WEATHERCHECK</h1>
+        <div id="navButton" class="flex md:hidden fas fa-bars fa-1x cursor-pointer"></div>
+      </div>
+      <ul class="md:flex items-center mt-3 md:opacity-100 opacity-0">
+        <li class="cursor-pointer md:px-4 ">
+          <span id="c" class="hover:text-cyan-500 duration-500">C </span>/
+          <span id="f" class="hover:text-cyan-500 duration-500">F </span>
+        </li>
+        <li class="cursor-pointer hover:text-cyan-500 duration-500">about</li>
+      </ul>
+    </nav>
+    <div class="md:flex justify-center items-center md:mt-20">
+      <div>
+        <div class="flex justify-center items-center text-4xl font-thin">
+          <%=city%>
+          <img src="<%=icon%>" alt="">
+        </div>
+        <div class="flex justify-center text-8xl ">
+          <span id="currentValue"><%=temp%></span> °<span id="current">C</span>
+        </div>
+      </div>
+      <div class="flex justify-center md:ml-64 mt-10 ">
+        <form id="myForm" action="/" method="post">
+        <input type="text" placeholder="Enter City" class="my-input rounded-lg text-xl p-2 text-black text-center" name="city">
+      </form>
+      </div>
+    </div>
+    <div class="bg-[#CFD2E1]  bg-opacity-50 md:flex md:justify-between md:mt-20 mt-10 mx-20
+    ada md:mb-44 md:px-28 py-4 rounded-2xl " >
+      <div><h1 class="flex justify-center  text-4xl">Description</h1><h1 class="flex justify-center md:mb-0 mb-4"><%=description%></h1></div>
+      <div><h1 class="flex justify-center  text-4xl">Pressure</h1><h1 class="flex justify-center mb-4"><%=pressure%></h1></div>
+      <div><h1 class="flex justify-center  text-4xl">Humidity</h1><h1 class="flex justify-center mb-4"><%=humidity%></h1></div>
+    </div>
+  </div>
+  <div class="md:fixed  min-w-full md:bottom-0 ">
+    <div class="bg-[#23334C] p-4 flex justify-center ">
+      <a href="https://github.com/Durrani123" class="fab fa-github fa-1x">Github</a>
+    </div>  
+  </div>
+  </div>
+
+  <div id="popUp" class="pointer-events-none opacity-0 absolute inset-0 flex justify-center items-center transition-all ease-in duration-500">
+    <div class="bg-white text-black px-10 py-10">
+      <h1 class="flex justify-center mb-5 text-3xl">ERROR</h1>
+      <h2 class="flex justify-center ">You Have Entered wrong City name</h2>
+      <h2 class="flex justify-center mb-5 "> Please Try Again</h2>
+      <div class="text-center bg-[#64B841]">
+        <button id="buttonForm" class="text-center w-full inline-block px-4 py-2  text-white rounded-lg">Try Again</button>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="index.js"></script>
+</html>
